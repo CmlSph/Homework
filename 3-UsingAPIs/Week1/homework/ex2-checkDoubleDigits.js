@@ -10,21 +10,40 @@ Complete the function called `checkDoubleDigits` such that:
   "Expected a double digit number but got `number`", where `number` is the 
   number that was passed as an argument.
 ------------------------------------------------------------------------------*/
-function checkDoubleDigits(/* TODO add parameter(s) here */) {
+// function checkDoubleDigits(/* TODO add parameter(s) here */) {
+//   // TODO complete this function
+// }
+
+// checkDoubleDigits(11) // should resolve
+//   .then((message) => console.log(message))
+//   .catch((error) => console.log(error.message));
+
+// checkDoubleDigits(5) // should reject
+//   .then((message) => console.log(message))
+//   .catch((error) => console.log(error.message));
+
+// checkDoubleDigits(123) // should reject
+//   .then((message) => console.log(message))
+//   .catch((error) => console.log(error.message));
+function checkDoubleDigits(number) {
   // TODO complete this function
+  return new Promise((resolve, reject) => {
+    if (number > 10 && number < 99) {
+      resolve('This is double digit number!');
+    } else {
+      reject(new Error(`Expected a double digit number but got ${number}`)); //This is an object
+    }
+  });
 }
 
 checkDoubleDigits(11) // should resolve
-  .then((message) => console.log(message))
-  .catch((error) => console.log(error.message));
-
+  .then((message) => console.log(message)) //should has and is
+  .catch((error) => console.log(error.message)); //
 checkDoubleDigits(5) // should reject
   .then((message) => console.log(message))
   .catch((error) => console.log(error.message));
-
 checkDoubleDigits(123) // should reject
   .then((message) => console.log(message))
   .catch((error) => console.log(error.message));
-
 // ! Do not change or remove the code below
 module.exports = checkDoubleDigits;
