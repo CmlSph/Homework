@@ -1,0 +1,11 @@
+
+*** ESLint Report ***
+
+ex2-checkDoubleDigits.js
+  13:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  17:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  21:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  25:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 4 problems (0 errors, 4 warnings)
+
