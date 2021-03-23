@@ -1,0 +1,21 @@
+*** Unit Test Error Report ***
+
+- programmerFun HTML should be syntactically valid
+  inline
+    11:2  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 1 problem (1 error, 0 warnings)
+  
+- programmerFun should use async/wait
+- programmerFun should use try/catch
+
+*** ESLint Report ***
+
+ex1-programmerFun/index.js
+  45:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  50:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  56:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  66:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 4 problems (0 errors, 4 warnings)
+
