@@ -162,3 +162,8 @@ ex3-rollDice.js
 2021-03-20 12:01:36 info: --------------------------------------------
 2021-03-20 12:01:46 info: All unit tests passed.
 2021-03-20 12:01:56 info: All steps were completed successfully
+2021-03-25 11:51:45 info: --------------------------------------------
+2021-03-25 11:51:45 info: >>> Running Unit Test `ex4-pokerDiceAll` <<<
+2021-03-25 11:51:45 info: --------------------------------------------
+2021-03-25 11:52:20 info: All unit tests passed.
+2021-03-25 11:52:46 info: All steps were completed successfully
