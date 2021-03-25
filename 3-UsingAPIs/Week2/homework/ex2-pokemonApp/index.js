@@ -18,18 +18,49 @@ Complete the four functions provided in the starter `index.js` file:
 Try and avoid using global variables. Instead, use function parameters and 
 return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-function fetchData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-}
-
-function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-}
-
-function fetchImage(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-}
-
 function main() {
   // TODO complete this function
+  const buttonGetPokemon = document.createElement('button');
+  buttonGetPokemon.id = 'myButton';
+  buttonGetPokemon.innerText = 'Get Pokemon';
+  document.body.appendChild(buttonGetPokemon);
+  const pokemonSelect = document.createElement('select');
+  pokemonSelect.id = 'pokemon';
+  document.body.appendChild(pokemonSelect);
+  const imageOfThePokemon = document.createElement('img');
+  imageOfThePokemon.id = 'pokemonImage';
+  document.body.appendChild(imageOfThePokemon);
+  pokemonImage.style.display = 'block';
+  let pokemonsArray;
+  const url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
+  function fetchData() {
+    // TODO complete this function
+    fetch(url)
+      .then((response) => response.json())
+      .then((jsonData) => {
+        pokemonsArray = jsonData.results;
+        fetchAndPopulatePokemons(pokemonsArray);
+      });
+  }
+  buttonGetPokemon.addEventListener('click', fetchData);
+  function fetchAndPopulatePokemons(array) {
+    // TODO complete this function
+    array.forEach((element, index) => {
+      const pokemonOptions = document.createElement('option');
+      pokemonOptions.innerText = element.name;
+      pokemonSelect.appendChild(pokemonOptions);
+      pokemonOptions.value = index;
+    });
+  }
+  function fetchImage(event) {
+    // TODO complete this function
+    const urlOfThePokemonImages = pokemonsArray[event.target.value].url;
+    fetch(urlOfThePokemonImages)
+      .then((response) => response.json())
+      .then((data) => {
+        imageOfThePokemon.src = data.sprites.front_default;
+      });
+  }
+  pokemonSelect.addEventListener('change', fetchImage);
 }
+window.onload = main();

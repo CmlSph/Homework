@@ -17,27 +17,29 @@
 ------------------------------------------------------------------------------*/
 function requestData(url) {
   // TODO return a promise using `fetch()`
+  return fetch(url).then((response) => response.json());
 }
-
 function renderImage(data) {
   // TODO render the image to the DOM
+  const image = document.createElement('img');
+  image.src = data.img;
+  document.body.append(image);
   console.log(data);
 }
-
 function renderError(error) {
   // TODO render the error to the DOM
+  const errorMessage = document.createElement('H1');
+  errorMessage.textContent = error;
+  document.body.append(errorMessage);
   console.log(error);
 }
-
 // TODO refactor with async/await and try/catch
-function main() {
-  requestData('https://xkcd.now.sh/?comic=latest')
-    .then((data) => {
-      renderImage(data);
-    })
-    .catch((error) => {
-      renderError(error);
-    });
+async function main() {
+  try {
+    const response = await requestData('https://xkcd.now.sh/?comic=latest');
+    renderImage(response);
+  } catch (error) {
+    renderError(`Ooooops! Something went wrong!:${error.message}`);
+  }
 }
-
 window.addEventListener('load', main);
