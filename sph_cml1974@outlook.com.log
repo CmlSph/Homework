@@ -69,3 +69,13 @@ ex2-pokemonApp/index.js
 2021-03-28 06:34:24 info: --------------------------------------------
 2021-03-28 06:34:24 warn: A unit test file was not provided.
 2021-03-28 06:34:36 info: All steps were completed successfully
+2021-03-29 07:38:07 info: --------------------------------------------
+2021-03-29 07:38:07 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-03-29 07:38:07 info: --------------------------------------------
+2021-03-29 07:38:08 warn: A unit test file was not provided.
+2021-03-29 07:38:42 info: All steps were completed successfully
+2021-03-29 07:46:23 info: ----------------------------------------
+2021-03-29 07:46:23 info: >>> Running Unit Test `ex5-vscDebug` <<<
+2021-03-29 07:46:23 info: ----------------------------------------
+2021-03-29 07:46:23 warn: A unit test file was not provided.
+2021-03-29 07:46:34 info: All steps were completed successfully
