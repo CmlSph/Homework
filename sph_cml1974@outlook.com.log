@@ -3,3 +3,69 @@
 2021-03-24 06:27:07 info: ----------------------------------------
 2021-03-24 06:29:50 info: All unit tests passed.
 2021-03-24 06:30:57 info: All steps were completed successfully
+2021-03-26 11:31:55 info: -----------------------------------------
+2021-03-26 11:31:55 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-03-26 11:31:55 info: -----------------------------------------
+2021-03-26 11:32:31 info: All unit tests passed.
+2021-03-26 11:32:47 error: *** ESLint Report ***
+
+ex3-rollAnAce.js
+  31:29  error  'error' is not defined  no-undef
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-03-26 11:35:55 info: -----------------------------------------
+2021-03-26 11:35:55 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-03-26 11:35:55 info: -----------------------------------------
+2021-03-26 11:36:03 info: All unit tests passed.
+2021-03-26 11:36:10 info: All steps were completed successfully
+2021-03-26 08:18:11 info: ------------------------------------------
+2021-03-26 08:18:11 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-03-26 08:18:11 info: ------------------------------------------
+2021-03-26 08:19:06 error: *** Unit Test Error Report ***
+
+- pokemonApp HTML should be syntactically valid
+  inline
+    11:2   error  <button> is missing required "type" attribute  element-required-attributes
+    11:2   error  <button> must have accessible text             text-content
+    11:63  error  <img> is missing required "src" attribute      element-required-attributes
+    11:63  error  <img> is missing required "alt" attribute      wcag/h37
+  
+  ✖ 4 problems (4 errors, 0 warnings)
+  
+- pokemonApp should use `await fetch()`
+- pokemonApp should use try/catch
+
+2021-03-26 08:19:18 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  25:3  warning  The homework tests do not support `innerText`. Please replace with `textContent`  no-restricted-syntax
+  33:3  error    'pokemonImage' is not defined                                                     no-undef
+  50:7  warning  The homework tests do not support `innerText`. Please replace with `textContent`  no-restricted-syntax
+
+✖ 3 problems (1 error, 2 warnings)
+
+
+2021-03-28 06:07:46 info: ------------------------------------------
+2021-03-28 06:07:46 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-03-28 06:07:46 info: ------------------------------------------
+2021-03-28 06:09:02 error: *** Unit Test Error Report ***
+
+- pokemonApp HTML should be syntactically valid
+  inline
+    11:45  error  <form> element must have a submit button  wcag/h32
+  
+  ✖ 1 problem (1 error, 0 warnings)
+  
+
+2021-03-28 06:31:57 info: --------------------------------------------
+2021-03-28 06:31:57 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-03-28 06:31:57 info: --------------------------------------------
+2021-03-28 06:31:57 warn: A unit test file was not provided.
+2021-03-28 06:32:11 info: All steps were completed successfully
+2021-03-28 06:34:24 info: --------------------------------------------
+2021-03-28 06:34:24 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-03-28 06:34:24 info: --------------------------------------------
+2021-03-28 06:34:24 warn: A unit test file was not provided.
+2021-03-28 06:34:36 info: All steps were completed successfully
