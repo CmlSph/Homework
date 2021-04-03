@@ -16,9 +16,34 @@
    should result in a network (DNS) error.
 ------------------------------------------------------------------------------*/
 function requestData(url) {
+  //This works fine without checking HTTP Errors
   // TODO return a promise using `fetch()`
   return fetch(url).then((response) => response.json());
 }
+
+//This returns "Ooooops! Something went wrong!:Cannot read property 'img' of undefined"
+// function requestData(url) {
+//   // TODO return a promise using `fetch()`
+//   fetch(url).then((response) => {
+//     if (!response.ok) {
+//       throw 'HTTP ERROR';
+//     } else {
+//       return response.json();//We return a promise here
+//     }
+//   });
+// }
+
+// function requestData(url) {
+//   // TODO return a promise using `fetch()`
+//   fetch(url).then((response) => {
+//     if (response.status >= 200 && response.status < 400) {
+//       return response.json(); //This also returns a promise but gives the same error
+//     } else {
+//       throw 'HTTP ERROR';
+//     }
+//   });
+// }
+
 function renderImage(data) {
   // TODO render the image to the DOM
   const image = document.createElement('img');
@@ -28,10 +53,9 @@ function renderImage(data) {
 }
 function renderError(error) {
   // TODO render the error to the DOM
-  const errorMessage = document.createElement('H1');
+  const errorMessage = document.createElement('h1');
   errorMessage.textContent = error;
   document.body.append(errorMessage);
-  console.log(error);
 }
 // TODO refactor with async/await and try/catch
 async function main() {

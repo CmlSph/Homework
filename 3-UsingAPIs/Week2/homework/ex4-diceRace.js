@@ -14,7 +14,6 @@ function rollTheDices() {
   const dices = [1, 2, 3, 4, 5];
   // TODO complete this function; use Promise.race() and rollDice()
   const combinedPromise = dices.map((element) => rollDice(element));
-  console.log(combinedPromise);
   return Promise.race(combinedPromise);
 }
 
