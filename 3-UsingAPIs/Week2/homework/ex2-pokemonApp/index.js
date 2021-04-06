@@ -1,35 +1,70 @@
-'use strict';
-/*------------------------------------------------------------------------------
-Complete the four functions provided in the starter `index.js` file:
-
-`fetchData`: In the `fetchData` function, make use of `fetch` and its Promise 
-  syntax in order to get the data from the public API. Errors (HTTP or network 
-  errors) should be logged to the console.
-
-`fetchAndPopulatePokemons`: Use `fetchData()` to load the pokemon data from the 
-  public API and populates the `<select>` element in the DOM.
-  
-`fetchImage`: Use `fetchData()` to fetch the selected image and update the 
-  `<img>` element in the DOM.
-
-`main`: The `main` function orchestrates the other functions. The `main` 
-  function should be executed when the window has finished loading.
-
-Try and avoid using global variables. Instead, use function parameters and 
-return values to pass data back and forth.
-------------------------------------------------------------------------------*/
-function fetchData(/* TODO parameter(s) go here */) {
+async function fetchData(url) {
   // TODO complete this function
+  const response = await fetch(url);
+  if (response.ok) {
+    const result = await response.json();
+    return result;
+  } else {
+    console.log(response.status);
+    return;
+  }
 }
 
-function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {
+function fetchAndPopulatePokemons(pokemonsArray) {
   // TODO complete this function
+  let selectPokemon = document.querySelector('select');
+
+  pokemonsArray.results.forEach((pokemon, index) => {
+    const option = document.createElement('option');
+    option.textContent = pokemon.name;
+    selectPokemon.appendChild(option);
+    option.value = index;
+  });
+  selectPokemon.addEventListener('change', function (event) {
+    index = selectPokemon[selectPokemon.selectedIndex].innerText;
+    fetchImage(index);
+  });
 }
 
-function fetchImage(/* TODO parameter(s) go here */) {
+async function fetchImage(nameOfThePokemon) {
   // TODO complete this function
+  try {
+    const response = await fetchData(
+      `https://pokeapi.co/api/v2/pokemon/${nameOfThePokemon}`
+    );
+    const result = await response;
+    const image = document.querySelector('img');
+    image.src = result.sprites.front_default;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function main() {
+async function main() {
   // TODO complete this function
+  const buttonGetPokemon = document.createElement('button');
+  document.body.appendChild(buttonGetPokemon);
+
+  buttonGetPokemon.setAttribute('type', 'submit');
+  buttonGetPokemon.textContent = 'Get Pokemon!';
+
+  const selectPokemon = document.createElement('select');
+  document.body.appendChild(selectPokemon);
+
+  const pokemonImage = document.createElement('img');
+  document.body.appendChild(pokemonImage);
+  pokemonImage.style.display = 'block';
+
+  try {
+    buttonGetPokemon.addEventListener('click', async () => {
+      const response = await fetchData(
+        'https://pokeapi.co/api/v2/pokemon/?limit=151'
+      );
+      fetchAndPopulatePokemons(response);
+    });
+  } catch (error) {
+    console.log(`Ooops, something went wrong! ${error}`);
+    document.body.append(error);
+  }
 }
+window.onload = main();

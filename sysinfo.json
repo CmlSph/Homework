@@ -1,0 +1,43 @@
+{
+  "node": "v14.15.0",
+  "system": {
+    "manufacturer": "Hewlett-Packard",
+    "model": "HP Pavilion 15 Notebook PC"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i7-4500U",
+    "speed": 1.8
+  },
+  "memory": "12 GB",
+  "osInfo": {
+    "platform": "win32",
+    "distro": "Microsoft Windows 10 Home",
+    "release": "10.0.19041"
+  },
+  "blockDevices": [
+    {
+      "name": "C:",
+      "size": "980 GB",
+      "fsType": "ntfs",
+      "physical": "Local"
+    },
+    {
+      "name": "D:",
+      "size": "17 GB",
+      "fsType": "ntfs",
+      "physical": "Local"
+    },
+    {
+      "name": "E:",
+      "size": "0 GB",
+      "fsType": "",
+      "physical": "CD/DVD"
+    }
+  ],
+  "vscodeInfo": {
+    "version": "",
+    "extensions": [],
+    "userSettings": {}
+  }
+}
