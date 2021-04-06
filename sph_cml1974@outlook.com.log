@@ -117,3 +117,11 @@ ex3-rollAnAce.js
 2021-04-03 05:45:27 info: -----------------------------------------
 2021-04-03 05:45:36 info: All unit tests passed.
 2021-04-03 05:45:43 info: All steps were completed successfully
+2021-04-04 11:36:15 info: ---------------------------------------------
+2021-04-04 11:36:15 info: >>> Running Unit Test `ex1-programmerFun` <<<
+2021-04-04 11:36:15 info: ---------------------------------------------
+2021-04-04 11:37:01 info: All unit tests passed.
+2021-04-04 11:37:25 error: *** Spell Checker Report ***
+
+ex1-programmerFun/index.js:49:18 - Unknown word (Ooooops)
+

@@ -1,55 +1,70 @@
-const buttonGetPokemon = document.createElement('button');
-document.body.appendChild(buttonGetPokemon);
-
-buttonGetPokemon.setAttribute('type', 'submit');
-buttonGetPokemon.textContent = 'Get Pokemon!';
-
-const form = document.createElement('form');
-document.body.appendChild(form);
-
-const selectPokemon = document.createElement('select');
-form.appendChild(selectPokemon);
-
-const pokemonImage = document.createElement('img');
-
 async function fetchData(url) {
   // TODO complete this function
   const response = await fetch(url);
-  const data = await response.json();
-  return data.results;
+  if (response.ok) {
+    const result = await response.json();
+    return result;
+  } else {
+    console.log(response.status);
+    return;
+  }
 }
 
-function fetchAndPopulatePokemons(element) {
+function fetchAndPopulatePokemons(pokemonsArray) {
   // TODO complete this function
-  element.forEach((pokemon) => {
+  let selectPokemon = document.querySelector('select');
+
+  pokemonsArray.results.forEach((pokemon, index) => {
     const option = document.createElement('option');
-    selectPokemon.appendChild(option);
-    option.value = pokemon.name;
     option.textContent = pokemon.name;
+    selectPokemon.appendChild(option);
+    option.value = index;
+  });
+  selectPokemon.addEventListener('change', function (event) {
+    index = selectPokemon[selectPokemon.selectedIndex].innerText;
+    fetchImage(index);
   });
 }
 
-selectPokemon.addEventListener('click', fetchImage);
-
-async function fetchImage() {
-  // TODO complete this function
-  const urlOfThePokemonImages = `https://pokeapi.co/api/v2/pokemon/${selectPokemon.value}`;
-  const response = await fetch(urlOfThePokemonImages);
-  const imageOfThePokemon = await response.json();
-  const imagePokemon = imageOfThePokemon.sprites.front_default;
-  document.body.appendChild(pokemonImage).src = imagePokemon;
-}
-
-buttonGetPokemon.addEventListener('click', main);
-
-async function main() {
+async function fetchImage(nameOfThePokemon) {
   // TODO complete this function
   try {
-    const data = await fetchData(
-      'https://pokeapi.co/api/v2/pokemon/?limit=151'
+    const response = await fetchData(
+      `https://pokeapi.co/api/v2/pokemon/${nameOfThePokemon}`
     );
-    fetchAndPopulatePokemons(data);
+    const result = await response;
+    const image = document.querySelector('img');
+    image.src = result.sprites.front_default;
   } catch (error) {
     console.log(error);
   }
 }
+
+async function main() {
+  // TODO complete this function
+  const buttonGetPokemon = document.createElement('button');
+  document.body.appendChild(buttonGetPokemon);
+
+  buttonGetPokemon.setAttribute('type', 'submit');
+  buttonGetPokemon.textContent = 'Get Pokemon!';
+
+  const selectPokemon = document.createElement('select');
+  document.body.appendChild(selectPokemon);
+
+  const pokemonImage = document.createElement('img');
+  document.body.appendChild(pokemonImage);
+  pokemonImage.style.display = 'block';
+
+  try {
+    buttonGetPokemon.addEventListener('click', async () => {
+      const response = await fetchData(
+        'https://pokeapi.co/api/v2/pokemon/?limit=151'
+      );
+      fetchAndPopulatePokemons(response);
+    });
+  } catch (error) {
+    console.log(`Ooops, something went wrong! ${error}`);
+    document.body.append(error);
+  }
+}
+window.onload = main();
